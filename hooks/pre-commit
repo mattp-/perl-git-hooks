@@ -65,7 +65,7 @@ if [[ "$USE_PERLCRITIC_FILTER" == "1" ]]; then
 	for file in `git status|grep .pm|awk '{print $NF}'`
 	do
 		if [[ ! `echo $file | grep '^t'` ]]; then
-			perlcritic --profile .perlcriticrc $file
+			perlcritic --profile "$HOME/.perlcriticrc" $file
 			if [[ $? != 0 ]]; then
 				die "Perl::Critic violation detected in $file"
 			fi
